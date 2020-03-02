@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class LoginController extends HttpServlet {
+
+    private UserService userService = SpringContext.getBean("userService");
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -21,8 +24,6 @@ public class LoginController extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
-        SpringContext springContext = new SpringContext();
-        UserService userService = (UserService) springContext.getBean("userService");
         User admin = userService.login(email, password);
 
         // 登录成功

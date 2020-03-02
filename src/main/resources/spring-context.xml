@@ -4,6 +4,9 @@
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--  spring配置文件加载顺序的问题，工具类SpringContext应该写到最前面，否则没有先找到工具类，会报错  -->
+    <bean id="springContext" class="com.xu.my.shop.commons.context.SpringContext"/>
+
     <!-- DAO -->
     <bean id="userDao" class="com.xu.my.shop.dao.Impl.UserDaoImpl"/>
 

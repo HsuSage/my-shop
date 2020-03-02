@@ -6,10 +6,10 @@ import com.xu.my.shop.entity.User;
 import com.xu.my.shop.service.UserService;
 
 public class UserServiceImpl implements UserService {
+    private UserDao userDao = SpringContext.getBean("userDao");
+
     @Override
     public User login(String email, String password) {
-        SpringContext springContext = new SpringContext();
-        UserDao userDao = (UserDao) springContext.getBean("userDao");
         return userDao.getUser(email, password);
     }
 }
