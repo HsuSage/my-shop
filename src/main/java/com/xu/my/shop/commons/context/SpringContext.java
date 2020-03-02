@@ -9,9 +9,11 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 import javax.swing.*;
 
+@Component
 public class SpringContext implements ApplicationContextAware, DisposableBean {
     private static final Logger logger = LoggerFactory.getLogger(SpringContext.class);
 

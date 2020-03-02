@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--  spring配置文件加载顺序的问题，工具类SpringContext应该写到最前面，否则没有先找到工具类，会报错  -->
-    <bean id="springContext" class="com.xu.my.shop.commons.context.SpringContext"/>
+<!--    <bean id="springContext" class="com.xu.my.shop.commons.context.SpringContext"/>-->
 
+<!--    对于 scope 为 singleton 的单例模式，该 Bean 是在容器被创建时即被装配好了。(默认)-->
+<!--    对于 scope 为 prototype 的原型模式，Bean 实例是在代码中使用该 Bean 实例时才进行装配的。-->
     <!-- DAO -->
-    <bean id="userDao" class="com.xu.my.shop.dao.Impl.UserDaoImpl"/>
+<!--    <bean id="userDao" class="com.xu.my.shop.dao.Impl.UserDaoImpl" scope="singleton"/>-->
 
     <!-- Service -->
-    <bean id="userService" class="com.xu.my.shop.service.Impl.UserServiceImpl"/>
+<!--    <bean id="userService" class="com.xu.my.shop.service.Impl.UserServiceImpl"/>-->
+
+    <!--  开启注解模式  -->
+    <context:annotation-config/>
+    <context:component-scan base-package="com.xu.my.shop"/>
 </beans>
