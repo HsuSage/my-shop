@@ -7,6 +7,16 @@ public class User implements Serializable {
     private String password;
     private String username;
 
+    private boolean isRemember;
+
+    public boolean isRemember() {
+        return isRemember;
+    }
+
+    public void setRemember(boolean remember) {
+        isRemember = remember;
+    }
+
     public String getEmail() {
         return email;
     }
